@@ -8,6 +8,13 @@ from src.exception import CustomException
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import datatransformation
+from src.components.data_transformation import datatransformationconfig
+
+
+test_data= 'C:\\Users\\hp\\Pictures\\new_projects\\artifacts\\test.csv'
+train_data='C:\\Users\\hp\\Pictures\\new_projects\\artifacts\\train.csv'
+
 @dataclass
 class dataingestionconfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
@@ -48,4 +55,10 @@ class DataIngestion:
 if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
-    
+
+
+    data_transformation = datatransformation()
+    data_transformation.data_transformation_start(train_path=train_data, test_path=test_data)
+
+
+
